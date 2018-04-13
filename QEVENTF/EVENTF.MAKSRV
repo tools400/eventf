@@ -1,0 +1,45 @@
+     /* ===================================================================== */
+     /*  Events File API                                                      */
+     /* ===================================================================== */
+     /*  Author  :  Thomas Raddatz                                            */
+     /*  Date    :  19.05.2013                                                */
+     /*  E-mail  :  thomas.raddatz@Tools400.de                                */
+     /*  Homepage:  www.tools400.de                                           */
+     /* ===================================================================== */
+     /* >>PRE-COMPILER<<                                                      */
+     /*   >>CRTCMD<< CRTSRVPGM    SRVPGM(&LI/EVENTF);                         */
+     /*   >>LINK<<                                                            */
+     /*     >>PARM<< MODULE(+                                                 */
+     /*                     &LI/EVENTF1   +                                   */
+     /*                     );                                                */
+     /*     >>PARM<< EXPORT(*SRCFILE);                                        */
+     /*     >>PARM<<   SRCFILE(&SL/&SF);                                      */
+     /*     >>PARM<<   SRCMBR(&SM);                                           */
+     /*     >>PARM<< ACTGRP(*CALLER);                                         */
+     /*     >>PARM<< ALWUPD(*YES);                                            */
+     /*     >>PARM<< ALWLIBUPD(*YES);                                         */
+     /*     >>PARM<< BNDSRVPGM(&LI/BASICS1);                                  */
+     /*     >>PARM<< TEXT('Events File API');                                 */
+     /*     >>PARM<< TGTRLS(V6R1M0  );                                        */
+     /*     >>PARM<< DETAIL(*BASIC);                                          */
+     /*   >>END-LINK<<                                                        */
+     /*   >>EXECUTE<<                                                         */
+     /* >>END-PRE-COMPILER<<                                                  */
+     /* ===================================================================== */
+
+STRPGMEXP PGMLVL(*CURRENT) SIGNATURE('Events_File_API')
+
+  EXPORT SYMBOL('EVENTF1_Eventf_open')
+  EXPORT SYMBOL('EVENTF1_Eventf_writeProcessor')
+  EXPORT SYMBOL('EVENTF1_Eventf_writeFileID')
+  EXPORT SYMBOL('EVENTF1_Eventf_writeFileEnd')
+  EXPORT SYMBOL('EVENTF1_Eventf_writeError')
+  EXPORT SYMBOL('EVENTF1_Eventf_close')
+
+  /* New with 1.2.2 */
+  EXPORT SYMBOL('EVENTF1_Eventf_openAppend')
+  EXPORT SYMBOL('EVENTF1_Eventf_clear')
+
+  /* New with 1.2.3 */
+  EXPORT SYMBOL('EVENTF1_Eventf_copyFrom')
+ENDPGMEXP
