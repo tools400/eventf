@@ -8,6 +8,8 @@
 /* --------------------------------------------------------------- */
              XMLGENINC  XINCLUDE(*YES)
 
+             XMLGENVRS XSRCFILE(QEVENTF) XSRCLIB(TOOLS400) XSRCMBR(COPYRIGHT)
+
              XMLGENCND  XMSG('Create sample programs? (YES, NO)') +
                           XVALUES(YES NO) XVAR(&CRTTSTPGM)
 
@@ -19,6 +21,11 @@
              XMLGENMBR  XMBR(A_INSTALL ) XMBRATR(CLLE  ) +
                           XFROMSRCF(QEVENTF   ) XFROMSRCL(TOOLS400) +
                           XTOSRCF(QEVENTF   ) XOBJTYPE(*FILE  ) +
+                          XGENCRT(*NO ) XPARAM(*BLANK)
+
+             XMLGENMBR  XMBR(A_README  ) XMBRATR(TXT) +
+                          XFROMSRCF(QEVENTF   ) XFROMSRCL(TOOLS400) +
+                          XTOSRCF(QEVENTF   ) XOBJTYPE(*PGM) +
                           XGENCRT(*NO ) XPARAM(*BLANK)
 
              XMLGENMBR  XMBR(CEELIB    ) XMBRATR(RPGLE ) +
