@@ -39,7 +39,7 @@
       *       >>PARM<< TRUNCNBR(*NO);                                       *
       *       >>PARM<< DBGVIEW(*LIST);                                      *
       *       >>PARM<< OPTION(*EVENTF);                                     *
-      *       >>PARM<< TGTRLS(V6R1M0  );                                    *
+      *       >>PARM<< TGTRLS(V7R1M0  );                                    *
       *     >>END-COMPILE<<                                                 *
       *                                                                     *
       *     >>EXECUTE<<                                                     *
@@ -133,8 +133,6 @@
      D clearEventFileMember...
      D                 pr
      D                                     extproc('clearEventFileMember')
-     D  i_lib                              const like(evf_objName_t)
-     D  i_mbr                              const like(evf_objName_t)
       *
       *  Opens the event file.
      D openEventFile...
@@ -265,9 +263,9 @@
                addEventFileMember(EVENT_FILE: i_lib: i_mbr);
             endif;
 
-            clearEventFileMember(i_lib: i_mbr);
-
             rtnLib = openEventFile(i_lib: i_mbr);
+
+            clearEventFileMember();
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -315,7 +313,11 @@
                return;
             endif;
 
-            clearEventFileMember(i_lib: i_mbr);
+            openEventFile(i_lib: i_mbr);
+
+            clearEventFileMember();
+
+            closeEventFile();
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -1288,20 +1290,19 @@
      P clearEventFileMember...
      P                 b
      D                 pi
-     D  i_lib                              const like(evf_objName_t)
-     D  i_mbr                              const like(evf_objName_t)
-      *
-     D command         s            128a   varying inz
+
+     D buffer          ds           300
       * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       /free
 
-         command =
-            'CLRPFM FILE(' + %trim(i_lib) + '/' + EVENT_FILE + ') +
-                    MBR(' + %trim(i_mbr) + ')';
-
-         QCMDEXC(command: %len(command));
-
-         p_rmvPgmMsg(cMsg_Rmv_All);
+         setll 1 EVFEVENT;
+         dow %found(EVFEVENT);
+           read EVFEVENT buffer;
+           if (%eof(EVFEVENT));
+             leave;
+           endif;
+           delete EVFEVENT;
+         enddo;
 
       /end-free
      P                 e
