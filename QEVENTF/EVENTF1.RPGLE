@@ -133,6 +133,8 @@
      D clearEventFileMember...
      D                 pr
      D                                     extproc('clearEventFileMember')
+     D  i_lib                              const like(evf_objName_t)
+     D  i_mbr                              const like(evf_objName_t)
       *
       *  Opens the event file.
      D openEventFile...
@@ -263,9 +265,9 @@
                addEventFileMember(EVENT_FILE: i_lib: i_mbr);
             endif;
 
-            rtnLib = openEventFile(i_lib: i_mbr);
+            clearEventFileMember(i_lib: i_mbr);
 
-            clearEventFileMember();
+            rtnLib = openEventFile(i_lib: i_mbr);
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -313,11 +315,7 @@
                return;
             endif;
 
-            openEventFile(i_lib: i_mbr);
-
-            clearEventFileMember();
-
-            closeEventFile();
+            clearEventFileMember(i_lib: i_mbr);
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -1290,19 +1288,20 @@
      P clearEventFileMember...
      P                 b
      D                 pi
-
-     D buffer          ds           300
+     D  i_lib                              const like(evf_objName_t)
+     D  i_mbr                              const like(evf_objName_t)
+      *
+     D command         s            128a   varying inz
       * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       /free
 
-         setll 1 EVFEVENT;
-         dow %found(EVFEVENT);
-           read EVFEVENT buffer;
-           if (%eof(EVFEVENT));
-             leave;
-           endif;
-           delete EVFEVENT;
-         enddo;
+         command =
+            'CLRPFM FILE(' + %trim(i_lib) + '/' + EVENT_FILE + ') +
+                    MBR(' + %trim(i_mbr) + ')';
+
+         QCMDEXC(command: %len(command));
+
+         p_rmvPgmMsg(cMsg_Rmv_All);
 
       /end-free
      P                 e

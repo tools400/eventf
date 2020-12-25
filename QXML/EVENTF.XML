@@ -51,7 +51,7 @@
       appblddate CDATA #REQUIRED
      >
      ]>
-<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate="12/24/2020">
+<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate=" 4/19/2018">
 <install_instructions><![CDATA[
      *----------------------------------------------------------------      ------
      *  1. Upload entire XML to your AS/400 to a source file 112 long, into any mbr
@@ -1289,7 +1289,7 @@ mbrtext =  "EVENTF - Installer                                "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
      /* =================================================================== */
      /*                                                                     */
@@ -1512,7 +1512,7 @@ mbrtext =  "EVENTF Readme                                     "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
 EVENTF - A Tools/400 Service Program
 ------------------------------------
@@ -1545,7 +1545,7 @@ mbrtext =  "Prototypes of CEE APIs                   (include)"
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
  DEF  /IF NOT DEFINED(CEELIB)
  DEF  /DEFINE CEELIB
@@ -1737,16 +1737,16 @@ mbrtext =  "Copyright information                             "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       /if not defined(COPYRIGHT_DSPEC)
-     H COPYRIGHT('V1.2.5 - 24.12.2020 - mailto:thomas.raddatz@tools400.de')
+     H COPYRIGHT('V1.2.4 - 09.02.2017 - mailto:thomas.raddatz@tools400.de')
       /eof
       /endif
      D EVENTF_VERSION...
-     D                 C                   '1.2.5'
+     D                 C                   '1.2.4'
      D EVENTF_DATE...
-     D                 C                   '24.12.2020'
+     D                 C                   '09.02.2017'
 ]]>  </copysrc>
 </mbr>
 <sendmsg  sendmsgid="CPF9897" sendmsgtype = "*STATUS   "><![CDATA[
@@ -1760,7 +1760,7 @@ mbrtext =  "Events File API                                   "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
      /* ===================================================================== */
      /*  Events File API                                                      */
@@ -1784,7 +1784,7 @@ srccssid=  "01141">
      /*     >>PARM<< ALWLIBUPD(*YES);                                         */
      /*     >>PARM<< BNDSRVPGM(&LI/BASICS1);                                  */
      /*     >>PARM<< TEXT('Events File API');                                 */
-     /*     >>PARM<< TGTRLS(V7R1M0  );                                        */
+     /*     >>PARM<< TGTRLS(V6R1M0  );                                        */
      /*     >>PARM<< DETAIL(*BASIC);                                          */
      /*   >>END-LINK<<                                                        */
      /*   >>EXECUTE<<                                                         */
@@ -1820,7 +1820,7 @@ mbrtext =  "Events File format (EVFEVENT)                     "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       /if defined(EVENTF_H)
       /eof
@@ -2048,7 +2048,7 @@ mbrtext =  "Event File API - Example 1 (short path names)     "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *===============================================================*
       *  erstellt : 19.05.2013                                        *
@@ -2351,7 +2351,7 @@ mbrtext =  "Event File API - Example 2 (QSYS object names)    "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *===============================================================*
       *                                                               *
@@ -2634,7 +2634,7 @@ mbrtext =  "Event File API - Example 3 (QSYS object names)    "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *===============================================================*
       *                                                               *
@@ -2917,7 +2917,7 @@ mbrtext =  "Event File API - Example 4 (long path names)      "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *===============================================================*
       *                                                               *
@@ -3207,7 +3207,7 @@ mbrtext =  "EVFEVENT API - Public Interface                   "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *=====================================================================*
       *  EVENTF API - Public Interface                                      *
@@ -3250,7 +3250,7 @@ srccssid=  "01141">
       *       >>PARM<< TRUNCNBR(*NO);                                       *
       *       >>PARM<< DBGVIEW(*LIST);                                      *
       *       >>PARM<< OPTION(*EVENTF);                                     *
-      *       >>PARM<< TGTRLS(V7R1M0  );                                    *
+      *       >>PARM<< TGTRLS(V6R1M0  );                                    *
       *     >>END-COMPILE<<                                                 *
       *                                                                     *
       *     >>EXECUTE<<                                                     *
@@ -3344,6 +3344,8 @@ srccssid=  "01141">
      D clearEventFileMember...
      D                 pr
      D                                     extproc('clearEventFileMember')
+     D  i_lib                              const like(evf_objName_t)
+     D  i_mbr                              const like(evf_objName_t)
       *
       *  Opens the event file.
      D openEventFile...
@@ -3474,9 +3476,9 @@ srccssid=  "01141">
                addEventFileMember(EVENT_FILE: i_lib: i_mbr);
             endif;
 
-            rtnLib = openEventFile(i_lib: i_mbr);
+            clearEventFileMember(i_lib: i_mbr);
 
-            clearEventFileMember();
+            rtnLib = openEventFile(i_lib: i_mbr);
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -3524,11 +3526,7 @@ srccssid=  "01141">
                return;
             endif;
 
-            openEventFile(i_lib: i_mbr);
-
-            clearEventFileMember();
-
-            closeEventFile();
+            clearEventFileMember(i_lib: i_mbr);
 
          on-error;
             msg = f_rcvPgmMsgObj(cMsg_Escape);
@@ -4501,19 +4499,20 @@ srccssid=  "01141">
      P clearEventFileMember...
      P                 b
      D                 pi
-
-     D buffer          ds           300
+     D  i_lib                              const like(evf_objName_t)
+     D  i_mbr                              const like(evf_objName_t)
+      *
+     D command         s            128a   varying inz
       * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       /free
 
-         setll 1 EVFEVENT;
-         dow %found(EVFEVENT);
-           read EVFEVENT buffer;
-           if (%eof(EVFEVENT));
-             leave;
-           endif;
-           delete EVFEVENT;
-         enddo;
+         command =
+            'CLRPFM FILE(' + %trim(i_lib) + '/' + EVENT_FILE + ') +
+                    MBR(' + %trim(i_mbr) + ')';
+
+         QCMDEXC(command: %len(command));
+
+         p_rmvPgmMsg(cMsg_Rmv_All);
 
       /end-free
      P                 e
@@ -4624,7 +4623,7 @@ mbrtext =  "File information data structure                   "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       /IF DEFINED(fileInfDS_DB)
       /IF DEFINED(infDS_DB_t)
@@ -5007,7 +5006,7 @@ mbrtext =  "H-Specifications                                  "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
      H DEBUG
      H OPTION(*SRCSTMT : *NODEBUGIO)
@@ -5032,7 +5031,7 @@ mbrtext =  "EVFEVENT API - Public Interface                   "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       /IF NOT DEFINED(PEVENTF)
       /DEFINE PEVENTF
@@ -5243,7 +5242,7 @@ mbrtext =  "Execute Command (QCMDEXC) API                     "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
       *
       *  ... Execute Command (QCMDEXC) API
@@ -5268,7 +5267,7 @@ mbrtext =  "Qp0lCvtPathToQSYSObjName()--Resolve Path          "
 srcfile =  "QEVENTF   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "01141">
+srccssid=  "00273">
 <copysrc><![CDATA[
  DEF  /IF NOT DEFINED(Qp0lCvtPathToQSYSObjName)
  DEF  /DEFINE Qp0lCvtPathToQSYSObjName
