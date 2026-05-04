@@ -1,67 +1,60 @@
- DEF  /IF NOT DEFINED(Qp0lCvtPathToQSYSObjName)
- DEF  /DEFINE Qp0lCvtPathToQSYSObjName
-      *
-      *  Qp0lCvtPathToQSYSObjName()--Resolve Integrated File System Path Name
-      *                              into QSYS Object Name
-     D Qp0lCvtPathToQSYSObjName...
-     D                 PR            10I 0 extproc('Qp0lCvtPathToQSYSObjName')
-     D  i_path                             const  likeds(Qlg_Path_Name_t)
-     D  o_qsys_info               65535A          options(*varsize)
-     D  i_format                      8A   const
-     D  i_bytPrv                     10I 0 value
-     D  i_ccsid                      10I 0 value
-     D  io_errCode                65535A          options(*varsize)
-      *
-     D qsys0100_t      DS                  qualified based(pDummy)
-     D  bytRet                 1      4i 0
-     D  bytAvl                 5      8i 0
-     D  ccsid                  9     12i 0
-     D  lib_name              13     40a
-     D  lib_type              41     60a
-     D  obj_name              61     88a
-     D  obj_type              89    108a
-     D  mbr_name             109    136a
-     D  mbr_type             137    156a
-     D  asp_name             157    184a
-      *
-      /if not defined(Qlg_Path_Name)
-      /define Qlg_Path_Name
-     D Qlg_Path_Name_t...
-     D                 DS                  qualified align         based(pDummy)
-     D   CCSID                       10I 0
-     D   Country_ID                   2A
-     D   Language_ID                  3A
-     D   Reserved                     3A
-     D   Path_Type                   10U 0
-     D   Path_Length                 10I 0
-     D   Path_Name_Delimiter...
-     D                                2A
-     D   Reserved2                   10A
-     D   Path_Name                  256A
-      *
-     D QLG_PATH_JOB_CCSID...
-     D                 C                   0
-     D QLG_PATH_JOB_COUNTRYID...
-     D                 C                   x'0000'
-     D QLG_PATH_JOB_LANGUAGEID...
-     D                 C                   x'000000'
-      *
-      *  The Path_Name is a character string and the delimiter is one byte long.
-     D QLG_CHAR_SINGLE...
-     D                 C                   0
-      *
-      *  The Path_Name is a pointer and the delimiter is one byte long.
-     D QLG_PTR_SINGLE...
-     D                 C                   1
-      *
-      *  The Path_Name is a character string and the delimiter is two bytes long.
-     D QLG_CHAR_DOUBLE...
-     D                 C                   2
-      *
-      *  The Path_Name is a pointer and the delimiter is two bytes long.
-     D QLG_PTR_DOUBLE...
-     D                 C                   3
-      *
-      /endif
-      *
- DEF  /ENDIF
+**free
+/if not defined(Qp0lCvtPathToQSYSObjName)
+/define Qp0lCvtPathToQSYSObjName
+
+//  Qp0lCvtPathToQSYSObjName()--Resolve Integrated File System Path Name
+//                              into QSYS Object Name
+dcl-pr Qp0lCvtPathToQSYSObjName int(10) extproc('Qp0lCvtPathToQSYSObjName');
+  i_path      likeds(Qlg_Path_Name_t) const;
+  o_qsys_info char(65535) options(*varsize);
+  i_format    char(8) const;
+  i_bytPrv    int(10) value;
+  i_ccsid     int(10) value;
+  io_errCode  char(65535) options(*varsize);
+end-pr;
+
+dcl-ds qsys0100_t qualified template;
+  bytRet   int(10);
+  bytAvl   int(10);
+  ccsid    int(10);
+  lib_name char(28);
+  lib_type char(20);
+  obj_name char(28);
+  obj_type char(20);
+  mbr_name char(28);
+  mbr_type char(20);
+  asp_name char(28);
+end-ds;
+
+/if not defined(Qlg_Path_Name)
+/define Qlg_Path_Name
+dcl-ds Qlg_Path_Name_t qualified align template;
+  ccsid               int(10);
+  country_ID          char(2);
+  language_ID         char(3);
+  reserved            char(3);
+  path_Type           uns(10);
+  path_Length         int(10);
+  path_Name_Delimiter char(2);
+  reserved2           char(10);
+  path_Name           char(256);
+end-ds;
+
+dcl-c QLG_PATH_JOB_CCSID 0;
+dcl-c QLG_PATH_JOB_COUNTRYID x'0000';
+dcl-c QLG_PATH_JOB_LANGUAGEID x'000000';
+
+//  The Path_Name is a character string and the delimiter is one byte long.
+dcl-c QLG_CHAR_SINGLE 0;
+
+//  The Path_Name is a pointer and the delimiter is one byte long.
+dcl-c QLG_PTR_SINGLE 1;
+
+//  The Path_Name is a character string and the delimiter is two bytes long.
+dcl-c QLG_CHAR_DOUBLE 2;
+
+//  The Path_Name is a pointer and the delimiter is two bytes long.
+dcl-c QLG_PTR_DOUBLE 3;
+
+/endif
+/endif

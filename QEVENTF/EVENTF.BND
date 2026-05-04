@@ -20,7 +20,7 @@
      /*     >>PARM<< ALWLIBUPD(*YES);                                         */
      /*     >>PARM<< BNDSRVPGM(&LI/BASICS1);                                  */
      /*     >>PARM<< TEXT('Events File API');                                 */
-     /*     >>PARM<< TGTRLS(V7R1M0  );                                        */
+     /*     >>PARM<< TGTRLS(V7R3M0  );                                        */
      /*     >>PARM<< DETAIL(*BASIC);                                          */
      /*   >>END-LINK<<                                                        */
      /*   >>EXECUTE<<                                                         */
