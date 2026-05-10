@@ -1113,7 +1113,7 @@ dcl-proc closeEventFile;
   clear g_status;
 
 end-proc;
-//
+
 //=========================================================================
 //  Converts a given message severity to the annotation class.
 //=========================================================================
@@ -1130,7 +1130,7 @@ dcl-proc getAnnotationClass;
   endsl;
 
 end-proc;
-//
+
 //=========================================================================
 //  Converts a given message type to the severity character.
 //  Rules:

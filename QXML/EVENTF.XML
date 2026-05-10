@@ -51,7 +51,7 @@
       appblddate CDATA #REQUIRED
      >
      ]>
-<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate=" 5/04/2026">
+<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate=" 5/10/2026">
 <install_instructions><![CDATA[
      *----------------------------------------------------------------      ------
      *  1. Upload entire XML to your AS/400 to a source file 112 long, into any mbr
@@ -1874,7 +1874,7 @@ dcl-ds evf_file_id_1 qualified template;
   separator_4 char(1) inz;
   length      char(3) inz('000');
   separator_5 char(1) inz;
-  filename    char(200) inz('Library___/File______('Library___/File______Member____) ');
+  filename    char(200) inz('Library___/File______(Member____)');
 end-ds;
 
 dcl-ds evf_file_id_2 qualified template;
@@ -3890,7 +3890,7 @@ dcl-proc closeEventFile;
   clear g_status;
 
 end-proc;
-//
+
 //=========================================================================
 //  Converts a given message severity to the annotation class.
 //=========================================================================
@@ -3907,7 +3907,7 @@ dcl-proc getAnnotationClass;
   endsl;
 
 end-proc;
-//
+
 //=========================================================================
 //  Converts a given message type to the severity character.
 //  Rules:

@@ -56,7 +56,7 @@ dcl-ds evf_file_id_1 qualified template;
   separator_4 char(1) inz;
   length      char(3) inz('000');
   separator_5 char(1) inz;
-  filename    char(200) inz('Library___/File______('Library___/File______Member____) ');
+  filename    char(200) inz('Library___/File______(Member____)');
 end-ds;
 
 dcl-ds evf_file_id_2 qualified template;
