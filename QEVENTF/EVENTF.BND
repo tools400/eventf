@@ -18,7 +18,7 @@
      /*     >>PARM<< ACTGRP(*CALLER);                                         */
      /*     >>PARM<< ALWUPD(*YES);                                            */
      /*     >>PARM<< ALWLIBUPD(*YES);                                         */
-     /*     >>PARM<< BNDSRVPGM(&LI/BASICS1);                                  */
+     /*     >>PARM<< BNDSRVPGM(*LIBL/BASICS1);                                */
      /*     >>PARM<< TEXT('Events File API');                                 */
      /*     >>PARM<< TGTRLS(V7R3M0  );                                        */
      /*     >>PARM<< DETAIL(*BASIC);                                          */

@@ -47,6 +47,8 @@
 
              DCL        VAR(&SRCLIB   ) TYPE(*CHAR) LEN(10)
 
+             DCL        VAR(&BNDLIBL  ) TYPE(*CHAR) LEN(10) VALUE('*LIBL')
+
              CHGVAR     VAR(&SRCLIB) VALUE(&TOLIB   )
 
      /* -------------------------------- */
@@ -104,7 +106,7 @@
                           SRCMBR(EVENTF) +
                           ACTGRP(*CALLER) +
                           DETAIL(*BASIC) +
-                          BNDSRVPGM(&TOLIB/BASICS1) +
+                          BNDSRVPGM(&BNDLIBL/BASICS1) +
                           TEXT('Event File API') +
                           TGTRLS(&TGTRLS)
              DLTSPLF    FILE(EVENTF   ) JOB(*) SPLNBR(*LAST)
