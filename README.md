@@ -6,7 +6,7 @@ EVENTF is service program that offers services for writing events to the IBM com
 
 Dependencies:
 
-- BASICS1
+- [BASICS1](https://github.com/tools400/basics1)
 
 ## Installation
 
