@@ -51,7 +51,7 @@
       appblddate CDATA #REQUIRED
      >
      ]>
-<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate=" 5/10/2026">
+<upload  appname="EVENTF"  appauthor="Thomas Raddatz"  appblddate=" 5/20/2026">
 <install_instructions><![CDATA[
      *----------------------------------------------------------------      ------
      *  1. Upload entire XML to your AS/400 to a source file 112 long, into any mbr
@@ -1340,6 +1340,8 @@ srccssid=  "01141">
 
              DCL        VAR(&SRCLIB   ) TYPE(*CHAR) LEN(10)
 
+             DCL        VAR(&BNDLIBL  ) TYPE(*CHAR) LEN(10) VALUE('*LIBL')
+
              CHGVAR     VAR(&SRCLIB) VALUE(&TOLIB   )
 
      /* -------------------------------- */
@@ -1397,7 +1399,7 @@ srccssid=  "01141">
                           SRCMBR(EVENTF) +
                           ACTGRP(*CALLER) +
                           DETAIL(*BASIC) +
-                          BNDSRVPGM(&TOLIB/BASICS1) +
+                          BNDSRVPGM(&BNDLIBL/BASICS1) +
                           TEXT('Event File API') +
                           TGTRLS(&TGTRLS)
              DLTSPLF    FILE(EVENTF   ) JOB(*) SPLNBR(*LAST)
@@ -1776,7 +1778,7 @@ srccssid=  "01141">
      /*     >>PARM<< ACTGRP(*CALLER);                                         */
      /*     >>PARM<< ALWUPD(*YES);                                            */
      /*     >>PARM<< ALWLIBUPD(*YES);                                         */
-     /*     >>PARM<< BNDSRVPGM(&LI/BASICS1);                                  */
+     /*     >>PARM<< BNDSRVPGM(*LIBL/BASICS1);                                */
      /*     >>PARM<< TEXT('Events File API');                                 */
      /*     >>PARM<< TGTRLS(V7R3M0  );                                        */
      /*     >>PARM<< DETAIL(*BASIC);                                          */
