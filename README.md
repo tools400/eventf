@@ -1,6 +1,6 @@
 # EVENTF - A Tools/400 Service Program
 
-EVENTF is service program that offers services for writing events to the IBM compile event file (EVFEVENT).
+EVENTF is a service program that offers services for writing events to the IBM compile event file (EVFEVENT).
 
 ## Dependencies
 
